@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:utext="${title}"></title>
+<link type="text/css" rel="stylesheet"
+	href="/webjars/font-awesome/5.15.2/css/all.min.css">
+<link type="text/css" rel="stylesheet"
+	href="/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm" th:fragment="header">
+		<h5 class="my-0 mr-md-auto font-weight-normal">Project Login</h5>
+		<nav class="my-2 my-md-0 mr-md-3">
+			<a class="p-2 text-dark" th:href="@{/}">Home</a>
+			<a class="p-2 text-dark" th:href="@{/user}">User</a>
+			<a class="p-2 text-dark" th:href="@{/admin}">Admin</a>
+		</nav>
+		<div>
+			<a class="btn btn-outline-primary ml-1" th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
+			<a class="btn btn-outline-primary ml-1" th:if="${#request.userPrincipal == null}" th:href="@{/login}">	Login</a>
+		</div>
+		<div>
+			<a class="btn btn-outline-primary ml-1" th:if="${#request.userPrincipal == null}" th:href="@{/register}">Sign up</a>
+		</div>
+	</div>
+	<h2>Message : <span th:utext="${message}"></span></h2>
+</body>
+</html>

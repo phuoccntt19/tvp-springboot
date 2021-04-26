@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Login</title>
+<link type="text/css" rel="stylesheet"
+	href="/webjars/font-awesome/5.15.2/css/all.min.css">
+<link type="text/css" rel="stylesheet"
+	href="/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css">
+</head>
+<body>
+	<div th:insert="welcomePage :: header">...</div>
+	
+	<div class="container">
+		<div class="text-center">
+			<div class="col-md-4 col-md-offset-4 m-auto">
+				<div class="panel panel-default p-4 border border-dark rounded">
+					<div class="panel-heading">
+						<h3 class="panel-title">Please sign in</h3>
+					</div>
+					<div class="panel-body">
+						<form name='f' th:action="@{/j_spring_security_check}"
+							method='post'>
+							<fieldset>
+								<div class="form-group">
+									<input class="form-control" placeholder="Username"
+										name="username" type="text" required="required">
+								</div>
+								<div class="form-group">
+									<input class="form-control" placeholder="Password"
+										name="password" type="password" required="required">
+								</div>
+								<div class="form-group">
+									<div class="container">
+										<div class="row" style="font-size: 15px">
+											<div class="col">
+												<div th:if="${#request.getParameter('error') == 'true'}"
+													style="color: red;">Login Failed!!!</div>
+											</div>
+											<div class="col text-left">
+												<a href="#">Forgot password</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<input class="btn btn-lg btn-success btn-block" type="submit"
+										value="Login">
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

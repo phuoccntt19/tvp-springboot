@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>User</title>
+<link type="text/css" rel="stylesheet" href="/css/loginPage.css">
+<link type="text/css" rel="stylesheet"
+	href="/webjars/font-awesome/5.15.2/css/all.min.css">
+<link type="text/css" rel="stylesheet"
+	href="/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css">
+</head>
+<body>
+	<div th:replace="welcomePage :: header">...</div>
+
+	<h2>CREATE NOTE</h2>
+	<br>
+	<form action="/note" method="post" th:object="${note}">
+		<input type="text" name="title" placeholder="title">
+		<input type="text" name="body" placeholder="body">
+		<button type="submit">Create</button>
+	</form>
+	<br>
+	<h2>LIST NOTE</h2>
+	<br>
+	<div th:each="note : ${listNote}">
+		<hr>
+		<h4 th:utext="${note.title}"></h4>
+		<p th:utext="${note.body}"></p>
+		<hr>
+	</div>
+
+</body>
+
+</html>
